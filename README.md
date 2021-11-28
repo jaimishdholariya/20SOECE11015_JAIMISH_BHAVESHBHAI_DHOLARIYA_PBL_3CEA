@@ -36,3 +36,25 @@ in else statement we make a new dictionary and we move files into it.
 ->    else:
 ->         os.makedirs(path+'/'+extension)
 ->         shutil.move(path+'/'+file,path+'/'+extension+'/'+file)
+
+FULL CODE:-
+-          #DHOLARIYA JAIMISH BHAVESHBHAI
+#20SOECE11015
+#3CEA
+#PBL
+import os
+import shutil
+
+path=input('enter your path')
+files=os.listdir(path)
+
+for file in files:
+    filename,extension=os.path.splitext(file)
+    extension=extension[1:]
+    if os.path.exists(path+'/'+extension):
+        shutil.move(path+'/'+file,path+'/'+extension+'/'+file)
+        print('extension folders already exist so we move that extension file to the existing file')
+    else:
+        os.makedirs(path+'/'+extension)
+        shutil.move(path+'/'+file,path+'/'+extension+'/'+file)
+        print('extension file does not exist so we make new extension file')
